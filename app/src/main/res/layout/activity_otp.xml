@@ -95,6 +95,18 @@
 
 
     </LinearLayout>
+    <EditText
+        android:id="@+id/pin_hidden_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@null"
+        android:cursorVisible="false"
+        android:gravity="center_horizontal"
+        android:maxLength="5"
+        android:password="true"
+        android:inputType="numberPassword"
+        android:textColor="#00000000" />
 
 
 
