@@ -34,6 +34,47 @@
         android:text="Get OTP"
         android:textSize="20dp"
         />
+    <LinearLayout android:id="@+id/pin_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <EditText android:id="@+id/pin_first_edittext"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            style="@style/pin_edittext_style"
+           />
+
+        <EditText android:id="@+id/pin_second_edittext"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            style="@style/pin_edittext_style"
+           />
+
+        <EditText android:id="@+id/pin_third_edittext"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            style="@style/pin_edittext_style"
+
+             />
+
+        <EditText android:id="@+id/pin_forth_edittext"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            style="@style/pin_edittext_style"
+           />
+
+
+    </LinearLayout>
+    <TextView
+        android:textSize="18dp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resend OTP?"
+        android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"

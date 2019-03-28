@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="pin_edittext_style">
+        <item name="android:gravity">center</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:inputType">numberPassword</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+
 </resources>
