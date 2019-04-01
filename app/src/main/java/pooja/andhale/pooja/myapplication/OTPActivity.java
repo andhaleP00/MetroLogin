@@ -66,8 +66,7 @@ public class OTPActivity extends AppCompatActivity implements View.OnFocusChange
         public void afterTextChanged(Editable s) {
             if(s.length()==10)
             {
-                InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(mobNumber.getWindowToken(), 0);
+               hideSoftKeyboard(mobNumber);
             }
 
         }
@@ -302,13 +301,10 @@ public class OTPActivity extends AppCompatActivity implements View.OnFocusChange
                 setFocusedPinBackground(pinFirstEditText);
                 pinFourthEditText.setText(s.charAt(3) + "");
                 otp=s.toString();
+               hideSoftKeyboard(mobNumber);
             }
         }
-        else
-        {
-//            s="";
-          Toast.makeText(getApplicationContext(),"onTextChanged() with start="+start+".",Toast.LENGTH_SHORT).show();
-        }
+
     }
 
     @Override
@@ -363,15 +359,30 @@ public class OTPActivity extends AppCompatActivity implements View.OnFocusChange
                         //above will check for valid mobile
                         pinEditTextVisibility();
                         Toast.makeText(getApplicationContext(),"call sendOTP api",Toast.LENGTH_SHORT).show();
-
                     }
+                    else if(mobNumber.length()==0)
+                        mobNumber.setError("mobile Number cant be empty");
                     break;
                 case R.id.resendOTP:
-                   pinEditTextVisibility();
-                   Toast.makeText(getApplicationContext(),"call sendOTP api",Toast.LENGTH_SHORT).show();
+                    if(mobNumber.length()==0)
+                    {
+                        mobNumber.setError("mobile Number cant be empty");
+                    }
+                    else
+                        {
+                        pinEditTextVisibility();
+                        Toast.makeText(getApplicationContext(), "call sendOTP api", Toast.LENGTH_SHORT).show();
+                        }
                     break;
                 case R.id.submit:
-                    Toast.makeText(getApplicationContext(),"otp="+otp+".",Toast.LENGTH_LONG).show();
+                    if((mobNumber.length()==0)||(otp==null))
+                    {
+                        Toast.makeText(getApplicationContext(),"please enter valid mobile number and otp.",Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"otp="+otp+".",Toast.LENGTH_LONG).show();
+                    }
+
                     break;
 
             }
@@ -394,6 +405,11 @@ public class OTPActivity extends AppCompatActivity implements View.OnFocusChange
 
         InputMethodManager imm = (InputMethodManager) getSystemService(Service.INPUT_METHOD_SERVICE);
         imm.showSoftInput(editText, 0);
+    }
+
+    public void hideSoftKeyboard(EditText editText) {
+        InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 
 
