@@ -161,12 +161,14 @@ public class MainActivity extends AppCompatActivity {
             passwordImage.setImageResource(R.drawable.ic_visibility_black_24dp);
 //            metroIdPassword.setInputType(InputType.TYPE_CLASS_TEXT);
             metroIdPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            metroIdPassword.setSelection(metroIdPassword.length());
             flag=false;
         }else if(flag==false)
         {
             passwordImage.setImageResource(R.drawable.ic_visibility_off_black_24dp);
 //            metroIdPassword.setInputType(InputType.TYPE_NUMBER_VARIATION_PASSWORD);
             metroIdPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            metroIdPassword.setSelection(metroIdPassword.length());
             flag=true;
         }
     }
